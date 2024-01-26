@@ -4,8 +4,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import UserManager
 
+
 class Users(AbstractUser):
-    username = None
 
     phone = models.CharField('Номер телефона', max_length=13, unique=True)
 

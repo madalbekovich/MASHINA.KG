@@ -21,4 +21,5 @@ class UserManager(BaseUserManager):
         if spec_fields.get('is_superuser') is not True:
             raise ValueError('Супер пользователь должен иметь is_superuser=True')
 
+
         return self.create_user(phone, password, **spec_fields)
