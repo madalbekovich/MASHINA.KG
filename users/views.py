@@ -29,12 +29,11 @@ class SendCodeAPIView(APIView):
         try:
             user = Users.objects.get(phone=phone_number)
         except Users.DoesNotExist:
-            # Если пользователь не найден, создаем нового пользователя
             user = Users.objects.create(phone=phone_number)
 
         if not user.activated:
-            # Здесь вызывайте вашу логику отправки кода активации
-            user.save() # Замените эту строку на ваш вызов
+            # логика код активации
+            user.save()
 
             serializer = UserSerializer(user)
             return Response(serializer.data, status=status.HTTP_200_OK)
