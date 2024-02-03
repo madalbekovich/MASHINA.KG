@@ -33,15 +33,11 @@ class PassengerCars(models.Model):
     )
     manufacturing_year = models.IntegerField()
     body = models.CharField(max_length=50, choices=TYPE_BODY, verbose_name='Тип кузова')
-    generation = models.ImageField(upload_to='media/', verbose_name='Поколение')
     engine = models.CharField(max_length=50, choices=FUEL, verbose_name='Двигатель')
     drive = models.CharField(max_length=50, choices=DRIVE, verbose_name='Привод')
     gearbox = models.CharField(max_length=50, choices=GEARBOX, verbose_name='Каробка передач')
     wheel = models.CharField(choices=STEERING_WHEEL, verbose_name='Руль', max_length=400)
     modification = models.CharField(max_length=255, verbose_name='Модификация')
-    video_youtube = models.URLField(max_length=200, help_text='Введите URL-ссылку на YouTube видео',
-                                    verbose_name='Видео')
-
     def __str__(self):
         return f"{self.mark} {self.model}"
 

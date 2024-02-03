@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'smart_selects',
     'drf_yasg',
-    'sendsms',
+    # 'sendsms',
     'django_filters',
     'debug_toolbar',
 ]
@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'otherposition.urls'
@@ -168,3 +169,9 @@ SITE_ID = 1
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'phone'
+
+NIKITA_LOGIN = "into"
+NIKITA_PASSWORD = "YqsdM_ir"
+NIKITA_SENDER = "SMSPRO.KG"

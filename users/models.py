@@ -2,12 +2,16 @@ import random
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
+
 from .managers import UserManager
 
 
 class Users(AbstractUser):
 
-    phone = models.CharField('Номер телефона', max_length=13, unique=True)
+    username = None
+
+    phone = models.CharField('Номер телефона', max_length=16, unique=True)
 
     code = models.IntegerField('код потверждение', null=True)
 

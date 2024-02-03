@@ -22,7 +22,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 import debug_toolbar
-from users.views import UserProfileAPIView
+from users.views import UserInfo
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -38,12 +38,11 @@ schema_view = get_schema_view(
 )
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/profile/', UserProfileAPIView.as_view(), name='user-profile-api'),
-    path('', include('marketplace.urls')),
+    path('Google/profile/', UserInfo.as_view(), name='user-profile-api'),
     path('auth/', include('users.urls')),
+    path('section/', include('marketplace.urls')),
     path('accounts/', include('allauth.urls')),
     re_path('doc-json/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
